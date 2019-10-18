@@ -124,7 +124,8 @@ ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 ENV GPG_KEYS CBAF69F173A0FEA4B537F470D66C9593118BCCB6 F38252826ACD957EF380D39F2F7956BC5DA04B5D
 
 ENV PHP_VERSION 7.4.0RC4
-ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.0RC4.tar.xz" PHP_ASC_URL="https://downloads.php.net/~derick/php-7.4.0RC4.tar.xz"
+#ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.0RC4.tar.xz" PHP_ASC_URL="https://downloads.php.net/~derick/php-7.4.0RC4.tar.xz"
+ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.0RC4.tar.xz" PHP_ASC_URL=""
 ENV PHP_SHA256="6fcce4c914825fbf5510b448df1485469da621d419d798ef77168808ce0bd10c" PHP_MD5=""
 
 RUN set -eux; \
@@ -188,6 +189,7 @@ RUN set -eux; \
         libssl-dev \
         libxml2-dev \
         zlib1g-dev \
+        libonig-dev \
         ${PHP_EXTRA_BUILD_DEPS:-} \
     ; \
     rm -rf /var/lib/apt/lists/*; \
@@ -234,6 +236,8 @@ RUN set -eux; \
         --with-libedit \
         --with-openssl \
         --with-zlib \
+# in php 7.4 pear/pecl are deprecated and require to be explicitly enabled
+        --with-pear \
         \
 # bundled pcre does not support JIT on s390x
 # https://manpages.debian.org/stretch/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
