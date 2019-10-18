@@ -19,7 +19,7 @@ docker run -d -t --name LOCAL_DEV_SWOOLE -h "LOCAL_DEV_SWOOLE" --rm \
     -e HOST_IP=$(get_ip_address) \
     -e IS_CONTAINER=yes \
     -e GUZABA_DEPLOYMENT_IN_CONTAINER=true \
-    harbor.azonmedia.com:5000/azonmedia2/php7.2-swoole:4.4.7
+    kenashkov/php:7.4-swoole-stretch
 #    /bin/bash
     
 docker cp /home/$USER/.ssh LOCAL_DEV_SWOOLE:/root/
