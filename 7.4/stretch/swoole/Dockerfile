@@ -91,3 +91,8 @@ RUN curl -fsSL 'https://github.com/swoole/ext-postgresql/archive/master.zip' -o 
 
 # install composer
 RUN cd /root && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php ./composer-setup.php && cp ./composer.phar /usr/bin/composer && rm ./composer-setup.php
+
+RUN groupadd -g 1000 dev \
+    && useradd -u 1000 -g 1000 -m dev
+
+USER dev
