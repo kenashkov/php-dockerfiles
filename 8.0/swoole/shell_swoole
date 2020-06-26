@@ -1,0 +1,1 @@
+docker exec -it LOCAL_DEV_SWOOLE /bin/bash
