@@ -1,0 +1,376 @@
+downloading inotify-2.0.0.tgz ...
+Starting to download inotify-2.0.0.tgz (8,836 bytes)
+.....done: 8,836 bytes
+3 source files, building
+running: phpize
+Configuring for:
+PHP Api Version:         20190128
+Zend Module Api No:      20190128
+Zend Extension Api No:   420190128
+building in /tmp/pear/temp/pear-build-defaultuserauKYlv/inotify-2.0.0
+running: /tmp/pear/temp/inotify/configure --with-php-config=/usr/local/bin/php-config
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for a sed that does not truncate output... /bin/sed
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for cc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables...
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking how to run the C preprocessor... cc -E
+checking for icc... no
+checking for suncc... no
+checking for system library directory... lib
+checking if compiler supports -R... no
+checking if compiler supports -Wl,-rpath,... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for PHP prefix... /usr/local
+checking for PHP includes... -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib
+checking for PHP extension directory... /usr/local/lib/php/extensions/no-debug-non-zts-20190128
+checking for PHP installed headers prefix... /usr/local/include/php
+checking if debug is enabled... no
+checking if zts is enabled... no
+checking for gawk... no
+checking for nawk... nawk
+checking if nawk is broken... no
+checking whether to enable inotify support... yes, shared
+checking for a sed that does not truncate output... /bin/sed
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognize dependent libraries... pass_all
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking the maximum length of command line arguments... 1572864
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if cc supports -fno-rtti -fno-exceptions... no
+checking for cc option to produce PIC... -fPIC
+checking if cc PIC flag -fPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+
+creating libtool
+appending configuration tag "CXX" to libtool
+configure: patching config.h.in
+configure: creating ./config.status
+config.status: creating config.h
+running: make
+/bin/bash /tmp/pear/temp/pear-build-defaultuserauKYlv/inotify-2.0.0/libtool --mode=compile cc  -I. -I/tmp/pear/temp/inotify -DPHP_ATOM_INC -I/tmp/pear/temp/pear-build-defaultuserauKYlv/inotify-2.0.0/include -I/tmp/pear/temp/pear-build-defaultuserauKYlv/inotify-2.0.0/main -I/tmp/pear/temp/inotify -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib  -DHAVE_CONFIG_H  -g -O2   -c /tmp/pear/temp/inotify/inotify.c -o inotify.lo
+mkdir .libs
+ cc -I. -I/tmp/pear/temp/inotify -DPHP_ATOM_INC -I/tmp/pear/temp/pear-build-defaultuserauKYlv/inotify-2.0.0/include -I/tmp/pear/temp/pear-build-defaultuserauKYlv/inotify-2.0.0/main -I/tmp/pear/temp/inotify -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -DHAVE_CONFIG_H -g -O2 -c /tmp/pear/temp/inotify/inotify.c  -fPIC -DPIC -o .libs/inotify.o
+/tmp/pear/temp/inotify/inotify.c:152:47: error: expected ';', ',' or ')' before 'TSRMLS_DC'
+ static int php_inotify_queue_len(const int fd TSRMLS_DC) /* {{{ */
+                                               ^~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/inotify.c: In function 'zif_inotify_init':
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:176:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(INIT,EMFILE);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:176:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(INIT,EMFILE);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:177:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(INIT,ENFILE);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:177:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(INIT,ENFILE);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:178:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(INIT,ENOMEM);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:178:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(INIT,ENOMEM);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:80:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno)); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:179:4: note: in expansion of macro 'INOTIFY_DEFAULT_ERROR'
+    INOTIFY_DEFAULT_ERROR(errno);
+    ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:80:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno)); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:179:4: note: in expansion of macro 'INOTIFY_DEFAULT_ERROR'
+    INOTIFY_DEFAULT_ERROR(errno);
+    ^~~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c: In function 'zif_inotify_add_watch':
+/tmp/pear/temp/inotify/inotify.c:202:44: error: expected ')' before 'TSRMLS_CC'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rsl", &zstream, &pathname, &pathname_len, &mask) == FAILURE) {
+                                            ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:202:6: error: too few arguments to function 'zend_parse_parameters'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rsl", &zstream, &pathname, &pathname_len, &mask) == FAILURE) {
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/local/include/php/main/php.h:35:0,
+                 from /tmp/pear/temp/inotify/inotify.c:26:
+/usr/local/include/php/Zend/zend_API.h:298:14: note: declared here
+ ZEND_API int zend_parse_parameters(uint32_t num_args, const char *type_spec, ...);
+              ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:206:38: error: expected ')' before 'TSRMLS_CC'
+  if (php_check_open_basedir(pathname TSRMLS_CC)) {
+                                      ^~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:217:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,EACCES);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:217:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,EACCES);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:218:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,EBADF);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:218:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,EBADF);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:219:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,EINVAL);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:219:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,EINVAL);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:220:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,ENOMEM);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:220:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,ENOMEM);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:221:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,ENOSPC);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:221:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(ADD_WATCH,ENOSPC);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:80:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno)); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:222:4: note: in expansion of macro 'INOTIFY_DEFAULT_ERROR'
+    INOTIFY_DEFAULT_ERROR(errno);
+    ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:80:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno)); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:222:4: note: in expansion of macro 'INOTIFY_DEFAULT_ERROR'
+    INOTIFY_DEFAULT_ERROR(errno);
+    ^~~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c: In function 'zif_inotify_rm_watch':
+/tmp/pear/temp/inotify/inotify.c:240:44: error: expected ')' before 'TSRMLS_CC'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rl", &zstream, &wd) == FAILURE) {
+                                            ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:240:6: error: too few arguments to function 'zend_parse_parameters'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rl", &zstream, &wd) == FAILURE) {
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/local/include/php/main/php.h:35:0,
+                 from /tmp/pear/temp/inotify/inotify.c:26:
+/usr/local/include/php/Zend/zend_API.h:298:14: note: declared here
+ ZEND_API int zend_parse_parameters(uint32_t num_args, const char *type_spec, ...);
+              ^~~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:76:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:249:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(RM_WATCH,EINVAL);
+    ^~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:76:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, INOTIFY_##func##_##errno); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:249:4: note: in expansion of macro 'INOTIFY_ERROR_CASE'
+    INOTIFY_ERROR_CASE(RM_WATCH,EINVAL);
+    ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:29:0:
+/tmp/pear/temp/inotify/php_inotify.h:80:25: error: expected ')' before 'TSRMLS_CC'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno)); \
+                         ^
+/tmp/pear/temp/inotify/inotify.c:250:4: note: in expansion of macro 'INOTIFY_DEFAULT_ERROR'
+    INOTIFY_DEFAULT_ERROR(errno);
+    ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/php_inotify.h:80:3: error: too few arguments to function 'php_error_docref'
+   php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno)); \
+   ^
+/tmp/pear/temp/inotify/inotify.c:250:4: note: in expansion of macro 'INOTIFY_DEFAULT_ERROR'
+    INOTIFY_DEFAULT_ERROR(errno);
+    ^~~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c: In function 'zif_inotify_queue_len':
+/tmp/pear/temp/inotify/inotify.c:268:44: error: expected ')' before 'TSRMLS_CC'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "r", &zstream) == FAILURE) {
+                                            ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:268:6: error: too few arguments to function 'zend_parse_parameters'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "r", &zstream) == FAILURE) {
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/local/include/php/main/php.h:35:0,
+                 from /tmp/pear/temp/inotify/inotify.c:26:
+/usr/local/include/php/Zend/zend_API.h:298:14: note: declared here
+ ZEND_API int zend_parse_parameters(uint32_t num_args, const char *type_spec, ...);
+              ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:275:14: warning: implicit declaration of function 'php_inotify_queue_len' [-Wimplicit-function-declaration]
+  queue_len = php_inotify_queue_len(fd TSRMLS_CC);
+              ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:275:39: error: expected ')' before 'TSRMLS_CC'
+  queue_len = php_inotify_queue_len(fd TSRMLS_CC);
+                                       ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c: In function 'zif_inotify_read':
+/tmp/pear/temp/inotify/inotify.c:294:44: error: expected ')' before 'TSRMLS_CC'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "r", &zstream) == FAILURE) {
+                                            ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:294:6: error: too few arguments to function 'zend_parse_parameters'
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "r", &zstream) == FAILURE) {
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/local/include/php/main/php.h:35:0,
+                 from /tmp/pear/temp/inotify/inotify.c:26:
+/usr/local/include/php/Zend/zend_API.h:298:14: note: declared here
+ ZEND_API int zend_parse_parameters(uint32_t num_args, const char *type_spec, ...);
+              ^~~~~~~~~~~~~~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:301:51: error: expected ')' before 'TSRMLS_CC'
+  readbuf_size = (double) php_inotify_queue_len(fd TSRMLS_CC) * 1.6;
+                                                   ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:318:27: error: expected ')' before 'TSRMLS_CC'
+     php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno));
+                           ^~~~~~~~~
+/tmp/pear/temp/inotify/inotify.c:318:5: error: too few arguments to function 'php_error_docref'
+     php_error_docref(NULL TSRMLS_CC, E_WARNING, "%s", strerror(errno));
+     ^~~~~~~~~~~~~~~~
+In file included from /tmp/pear/temp/inotify/inotify.c:26:0:
+/usr/local/include/php/main/php.h:339:23: note: declared here
+ PHPAPI ZEND_COLD void php_error_docref(const char *docref, int type, const char *format, ...)
+                       ^~~~~~~~~~~~~~~~
+Makefile:209: recipe for target 'inotify.lo' failed
+make: *** [inotify.lo] Error 1
+ERROR: `make' failed
+The command '/bin/sh -c apt-get update && apt-get install -y         libfreetype6-dev         libjpeg62-turbo-dev         libpng-dev         libxml2         libxml2-dev         libpq-dev         libmcrypt-dev         libonig-dev         libssl-dev         mysql-client         git 	unixodbc-dev 	procps 	mc 	wget 	telnet 	netcat 	net-tools 	screen 	inetutils-ping 	dnsutils 	iproute2 	screen 	tmux     && docker-php-ext-install -j$(nproc) iconv     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/     && docker-php-ext-install -j$(nproc) gd     && docker-php-ext-install -j$(nproc) bcmath     && docker-php-ext-install -j$(nproc) mbstring     && docker-php-ext-install -j$(nproc) soap     && docker-php-ext-install -j$(nproc) pgsql     && docker-php-ext-install -j$(nproc) mysqli     && docker-php-ext-install -j$(nproc) pdo     && docker-php-ext-install -j$(nproc) pdo_mysql     && docker-php-ext-install -j$(nproc) pdo_pgsql     && docker-php-ext-install -j$(nproc) sockets     && docker-php-ext-install -j$(nproc) opcache     && docker-php-ext-install -j$(nproc) calendar     && docker-php-ext-install -j$(nproc) pcntl     && pecl install inotify     && docker-php-ext-enable redis     && docker-php-ext-enable mongodb     && docker-php-ext-enable inotify' returned a non-zero code: 1
+
