@@ -1,0 +1,39 @@
+#!/bin/bash
+
+get_ip_address() {
+    echo `hostname -I`|grep -oE '192.168.0.([0-9]*)'
+}
+
+#cp -rf /home/$USER/.ssh /home/$USER/.ssh-container-copy
+#    -v /home/$USER/.ssh-container-copy:/root/.ssh \
+
+#docker run -it --name LOCAL_DEV_SWOOLE -h "LOCAL_DEV_SWOOLE" --rm \
+# it is possible to run a container both in detached mode and in foreground (we need this so that the container doesnt stop
+# https://stackoverflow.com/questions/30209776/docker-container-will-automatically-stop-after-docker-run-d
+#docker run -it --name LOCAL_DEV_SWOOLE -h "LOCAL_DEV_SWOOLE" --rm \
+docker run -d -t --name LOCAL_DEV_SWOOLE -h "LOCAL_DEV_SWOOLE" --rm \
+    -p 8081:8081 \
+    -v /home/local:/home/local:rw \
+    -v /home/$USER/.gitconfig:/home/dev/.gitconfig:ro \
+    -v $HOME/.Xauthority:/home/dev/.Xauthority:rw \
+    -e DISPLAY=$(get_ip_address)$DISPLAY \
+    -e HOST_IP=$(get_ip_address) \
+    -e IS_CONTAINER=yes \
+    -e GUZABA_DEPLOYMENT_IN_CONTAINER=true \
+    kenashkov/php:7.4-swoole-stretch \
+    /bin/bash
+#    /bin/bash
+#--user $(id -u):$(id -g) \
+#--user 1000:1000 \
+    
+#docker cp /home/$USER/.ssh LOCAL_DEV_SWOOLE:/root/
+#docker exec LOCAL_DEV_SWOOLE chown -R root:root /root/.ssh
+docker cp /home/$USER/.ssh LOCAL_DEV_SWOOLE:/home/dev/
+#docker exec LOCAL_DEV_SWOOLE chown -R root:root /home/dev/.ssh
+
+#add the --net option in order to run GUI apps
+#--net=host \
+#but then there is no port forwarding and the apache will be exposed on port on which is running in the container - 80
+#--env="DISPLAY" \
+#so instead export the IP from the host network and use another private network for the container as it is by default
+
