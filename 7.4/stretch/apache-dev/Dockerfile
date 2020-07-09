@@ -1,5 +1,5 @@
-#Use PHP 7.2 docker image with Apache on Debian Stretch
-FROM kenashkov/php:7.4-apache-stretch
+#Use PHP 7.4 docker image with Apache on Debian Stretch
+FROM kenashkov/php:7.4.8-apache-stretch
 
 EXPOSE 80
 EXPOSE 9000
@@ -33,14 +33,14 @@ RUN apt-get update \
 #    && pecl install sqlsrv \
 #    && pecl install pdo_sqlsrv \
     && pecl install stats-2.0.3 \
-    && pecl install mcrypt-1.0.2 \
+#    && pecl install mcrypt-1.0.2 \
     && docker-php-ext-enable redis \
     && docker-php-ext-enable mongodb \
 #    && docker-php-ext-enable xdebug \
 #    && docker-php-ext-enable sqlsrv \
 #    && docker-php-ext-enable pdo_sqlsrv \
     && docker-php-ext-enable stats \
-    && docker-php-ext-enable mcrypt \
+#    && docker-php-ext-enable mcrypt \
     && a2enmod rewrite \
     && sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf \
     && sed -i 's/Options FollowSymLinks/Options Indexes MultiViews FollowSymLinks/g' /etc/apache2/apache2.conf \
