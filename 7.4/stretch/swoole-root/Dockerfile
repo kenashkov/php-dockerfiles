@@ -1,4 +1,4 @@
-FROM kenashkov/php:7.4.6-cli-stretch
+FROM kenashkov/php:7.4.8-cli-stretch
 
 # && docker-php-ext-install -j$(nproc) gettext \
 # postgresql-client \

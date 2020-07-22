@@ -1,4 +1,4 @@
-FROM kenashkov/php:7.4.6-swoole-4.5.2-root
+FROM kenashkov/php:7.4.8-swoole-4.5.2-root
 
 RUN groupadd -g 1000 dev \
     && useradd -u 1000 -g 1000 -m dev
