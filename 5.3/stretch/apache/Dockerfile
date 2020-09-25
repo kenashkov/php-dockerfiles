@@ -31,7 +31,6 @@ RUN cd /root \
     #&& './configure' '--prefix=/web/php5.3' '--with-apxs2=/web/apache-2.2/bin/apxs' \
     # -j6 & -fPIC causes apxs:Error: Command failed with rc=65536 
     && './configure' '--prefix=/web/php5.3' '--with-apxs2=/web/apache-2.2/bin/apxs' '--enable-bcmath' '--enable-calendar' '--enable-exif' '--enable-ftp' '--enable-libxml' '--enable-mbstring' '--enable-pdo' '--enable-soap' '--enable-sockets' '--enable-zip' '--with-bz2' '--with-curl' '--with-gd' '--with-mcrypt' '--with-mhash' '--with-mysql=mysqlnd'  '--with-pdo-sqlite=shared' '--with-pgsql' '--with-sqlite=shared' '--with-tidy' '--with-xsl' '--with-zlib' '--with-zlib-dir' '--with-pdo-mysql=mysqlnd' '--with-pdo-pgsql' '--with-jpeg-dir' '--with-png-dir' '--with-xpm-dir' '--with-ttf' '--with-freetype-dir' '--enable-gd-native-ttf' '--with-mysqli=mysqlnd' '--with-kerberos' '--with-gettext' '--enable-sysvsem' '--enable-sysvshm' '--enable-sysvmsg' '--enable-pcntl' '--enable-opcache' \
-
     && make clean \
     && make \
     && make install
@@ -39,5 +38,15 @@ RUN cd /root \
 COPY ./php.ini /web/php5.3/lib/php.ini
 
 COPY ./httpd.conf /web/apache-2.2/conf/httpd.conf
+
+#default values
+ENV APACHE_RUN_USER=www-data
+ENV APACHE_RUN_GROUP=www-data
+
+#usually the host user is 1000 and it will be best to match the user in the container with the host user for development purpose
+RUN usermod -u 1000 www-data \
+    && groupmod -g 1000 www-data
+
+WORKDIR /web/apache-2.2/htdocs
 
 CMD ["/web/apache-2.2/bin/apachectl", "-D", "FOREGROUND"]
