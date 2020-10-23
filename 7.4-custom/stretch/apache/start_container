@@ -1,0 +1,1 @@
+docker run -it -p 80:80 -v /home/local:/web/apache-2.2/htdocs -e APACHE_RUN_USER=www-data -e APACHE_RUN_GROUP=www-data kenashkov/php:5.3.29-apache-stretch

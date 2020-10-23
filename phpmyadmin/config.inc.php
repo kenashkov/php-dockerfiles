@@ -1,0 +1,2 @@
+<?php
+$cfg['NavigationTreeEnableGrouping'] = false;

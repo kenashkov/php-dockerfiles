@@ -1,0 +1,62 @@
+FROM kenashkov/php:7.4-custom-base
+
+# Add hash check c4e1cf6972b2a9c7f2777a18497d83bf713cdbecabb65d3ff62ba441aebb0091 php
+# Add hash check for apache
+
+# must install older bison
+# 1.28 1.35 1.75 1.875 2.0 2.1 2.2 2.3 2.4 2.4.1 2.4.2 2.4.3 2.5 2.5.1 2.6 2.6.1 2.6.2 2.6.4 (found: 3.0.4)
+#RUN apt-get install bison=2.6.4
+
+#download the needed packages
+RUN cd /root \
+    && wget "https://downloads.apache.org//httpd/httpd-2.4.46.tar.bz2" \
+    && wget "https://www.php.net/distributions/php-7.4.11.tar.bz2" \
+    && wget "https://mirrors.netix.net/apache//apr/apr-1.7.0.tar.bz2" \
+    && wget "https://mirrors.netix.net/apache//apr/apr-util-1.6.1.tar.bz2" \
+    && tar -xjvf httpd-2.4.46.tar.bz2 \
+    && tar -xjvf php-7.4.11.tar.bz2 \
+    && tar -xjvf apr-1.7.0.tar.bz2 \
+    && tar -xjvf apr-util-1.6.1.tar.bz2 \
+    && mv ./apr-1.7.0 ./httpd-2.4.46/srclib/apr \
+    && mv ./apr-util-1.6.1 ./httpd-2.4.46/srclib/apr-util
+
+
+#  --with-included-apr     Use bundled copies of APR/APR-Util
+#  --with-apr=PATH         prefix for installed APR or the full path to
+#                             apr-config
+#  --with-apr-util=PATH    prefix for installed APU or the full path to
+
+# -j6 causes an error if there is no -fPIC
+# '--with-t1lib' - no longer supported in Debian
+RUN cd /root \
+    && cd ./httpd-2.4.46 \
+    && ./configure --prefix=/web/apache-2.4/ --enable-so --enable-mods-shared="all" --with-included-apr CFLAGS="-fPIC" \
+    && make clean \
+    && make -j6 \
+    && make install
+
+#  CFLAGS="-fPIC" \
+RUN cd /root \
+    && cd ./php-7.4.11 \
+    #&& './configure' '--prefix=/web/php7.4' '--with-apxs2=/web/apache-2.4/bin/apxs' \
+    # -j6 & -fPIC causes apxs:Error: Command failed with rc=65536 
+    && './configure' '--prefix=/web/php7.4' '--with-apxs2=/web/apache-2.4/bin/apxs' '--enable-bcmath' '--enable-calendar' '--enable-exif' '--enable-ftp' '--enable-libxml' '--enable-mbstring' '--enable-pdo' '--enable-soap' '--enable-sockets' '--enable-zip' '--with-bz2' '--with-curl' '--with-gd' '--with-mcrypt' '--with-mhash' '--with-mysql=mysqlnd'  '--with-pdo-sqlite=shared' '--with-pgsql' '--with-sqlite=shared' '--with-tidy' '--with-xsl' '--with-zlib' '--with-zlib-dir' '--with-pdo-mysql=mysqlnd' '--with-pdo-pgsql' '--with-jpeg-dir' '--with-png-dir' '--with-xpm-dir' '--with-ttf' '--with-freetype-dir' '--enable-gd-native-ttf' '--with-mysqli=mysqlnd' '--with-kerberos' '--with-gettext' '--enable-sysvsem' '--enable-sysvshm' '--enable-sysvmsg' '--enable-pcntl' '--enable-opcache' \
+    && make clean \
+    && make \
+    && make install
+
+#COPY ./php.ini /web/php7.4/lib/php.ini
+
+#COPY ./httpd.conf /web/apache-2.4/conf/httpd.conf
+
+#default values
+ENV APACHE_RUN_USER=www-data
+ENV APACHE_RUN_GROUP=www-data
+
+#usually the host user is 1000 and it will be best to match the user in the container with the host user for development purpose
+RUN usermod -u 1000 www-data \
+    && groupmod -g 1000 www-data
+
+WORKDIR /web/apache-2.4/htdocs
+
+CMD ["/web/apache-2.4/bin/apachectl", "-D", "FOREGROUND"]

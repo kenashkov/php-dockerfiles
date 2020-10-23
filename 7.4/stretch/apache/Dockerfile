@@ -123,10 +123,10 @@ ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 
 ENV GPG_KEYS CBAF69F173A0FEA4B537F470D66C9593118BCCB6 F38252826ACD957EF380D39F2F7956BC5DA04B5D
 
-ENV PHP_VERSION 7.4.8
+ENV PHP_VERSION 7.4.11
 #ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.0RC5.tar.xz" PHP_ASC_URL="https://downloads.php.net/~derick/php-7.4.0RC5.tar.xz"
-ENV PHP_URL="https://www.php.net/distributions/php-7.4.8.tar.xz" PHP_ASC_URL=""
-ENV PHP_SHA256="642843890b732e8af01cb661e823ae01472af1402f211c83009c9b3abd073245" PHP_MD5=""
+ENV PHP_URL="https://www.php.net/distributions/php-7.4.11.tar.xz" PHP_ASC_URL=""
+ENV PHP_SHA256="5d31675a9b9c21b5bd03389418218c30b26558246870caba8eb54f5856e2d6ce" PHP_MD5=""
 
 RUN set -eux; \
     \

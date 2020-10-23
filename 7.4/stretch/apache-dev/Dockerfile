@@ -1,5 +1,5 @@
 #Use PHP 7.4 docker image with Apache on Debian Stretch
-FROM kenashkov/php:7.4.8-apache-stretch
+FROM kenashkov/php:7.4.11-apache-stretch
 
 EXPOSE 80
 EXPOSE 9000
@@ -24,6 +24,7 @@ RUN apt-get update \
     && docker-php-ext-install -j$(nproc) opcache \
     && docker-php-ext-install -j$(nproc) calendar \
     && docker-php-ext-install -j$(nproc) zip \
+    && docker-php-ext-install -j$(nproc) xml \
     && pecl install redis-4.3.0 \
     && pecl install mongodb \
     && pecl install xdebug \

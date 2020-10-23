@@ -1,0 +1,16 @@
+FROM kenashkov/php:7.4-custom-base
+
+# Add hash check c4e1cf6972b2a9c7f2777a18497d83bf713cdbecabb65d3ff62ba441aebb0091 php
+# Add hash check for apache
+
+# must install older bison
+# 1.28 1.35 1.75 1.875 2.0 2.1 2.2 2.3 2.4 2.4.1 2.4.2 2.4.3 2.5 2.5.1 2.6 2.6.1 2.6.2 2.6.4 (found: 3.0.4)
+#RUN apt-get install bison=2.6.4
+
+#download the needed packages
+RUN cd /root \
+    && wget "https://downloads.apache.org//httpd/httpd-2.4.46.tar.bz2" \
+    && wget "https://www.php.net/distributions/php-7.4.11.tar.bz2" \
+    && tar -xjvf httpd-2.4.46.tar.bz2 \
+    && tar -xjvf php-7.4.11.tar.bz2
+
